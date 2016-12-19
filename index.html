@@ -1,0 +1,48 @@
+<html>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+	<header>
+		<title>This is the year of...</title>
+	</header>
+
+	<body>
+		<div id="year" style="position: absolute; width:100%; text-align: center; top: 35%; font-family: 'Raleway', sans-serif; font-size: 48pt"></div>
+	</body>
+
+	<script>
+		var date = location.search;
+
+		var years = [
+			{
+				"year" : "2013",
+				"of" : "No Forgiveness"
+			},
+			{
+				"year" : "2014",
+				"of" : "Forgiveness"
+			},
+			{
+				"year" : "2015",
+				"of" : "Revenge"
+			},
+			{
+				"year" : "2016",
+				"of" : "Regret"
+			},
+			{
+				"year" : "2017",
+				"of" : ""
+			}
+		];
+
+		if(date == "")
+			date = new Date().getFullYear();
+		else
+			date = date.substring(1);
+
+		for(var i = 0; i < years.length; i++)
+			if(years[i].year == date)
+				document.getElementById("year").innerHTML = years[i].of;
+	</script>
+
+</html>
