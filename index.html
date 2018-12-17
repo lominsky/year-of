@@ -12,45 +12,22 @@
 	<script>
 		var date = location.search;
 
-		var years = [
-			{
-				"year" : "2013",
-				"of" : "No Forgiveness"
-			},
-			{
-				"year" : "2014",
-				"of" : "Forgiveness"
-			},
-			{
-				"year" : "2015",
-				"of" : "Revenge"
-			},
-			{
-				"year" : "2016",
-				"of" : "Regret"
-			},
-			{
-				"year" : "2017",
-				"of" : ""
-			},
-			{
-				"year" : "2018",
-				"of" : "Gluttony"
-			},
-			{
-				"year" : "2019",
-				"of" : "Ruin"
-			}
-		];
+		var years = {
+			2013: "No Forgiveness",
+			2014: "Forgiveness",
+			2015: "Revenge",
+			2016: "Regret",
+			2017: "",
+			2018: "Gluttony",
+			2019: "Ruin",
+		}
 
 		if(date == "")
 			date = new Date().getFullYear();
 		else
 			date = date.substring(1);
 
-		for(var i = 0; i < years.length; i++)
-			if(years[i].year == date)
-				document.getElementById("year").innerHTML = years[i].of;
+		document.getElementById("year").innerHTML = years[date];
 	</script>
 
 </html>
