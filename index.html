@@ -10,24 +10,33 @@
 	</body>
 
 	<script>
-		var date = location.search;
+		setText();
 
-		var years = {
-			2013: "No Forgiveness",
-			2014: "Forgiveness",
-			2015: "Revenge",
-			2016: "Regret",
-			2017: "Rage",
-			2018: "Gluttony",
-			2019: "Ruin",
+		function interval() {
+			var now = new Date();
+			var midnight = new Date(now.getTime() + 1000*60*60*24);
+			midnight.setHours(0);
+			midnight.setMinutes(0);
+			midnight.setSeconds(0);
+			setTimeout(setText, midnight.getTime() - now.getTime());
 		}
 
-		if(date == "")
-			date = new Date().getFullYear();
-		else
-			date = date.substring(1);
-
-		document.getElementById("year").innerHTML = years[date];
+		function setText() {
+			var date = location.search;
+			var years = {
+				2013: "No Forgiveness",
+				2014: "Forgiveness",
+				2015: "Revenge",
+				2016: "Regret",
+				2017: "Rage",
+				2018: "Gluttony",
+				2019: "Ruin",
+				2020: ""
+			}
+			date == "" ? date = new Date().getFullYear() : date = date.substring(1);
+			document.getElementById("year").innerHTML = years[date];
+			interval();
+		}
 	</script>
 
 </html>
